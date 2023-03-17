@@ -18,8 +18,12 @@ from django.urls import path
 
 from . import views
 
+# tracing-test
+def trigger_error(request):
+    division_by_zero = 1 / 0
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
+    path('sumo-debug/', trigger_error),
 ]
